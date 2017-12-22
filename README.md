@@ -737,7 +737,7 @@ Let's create a Custom Element called  `<popout-nav>` . We'll aim to be able to u
 ## Best practices
 
 - When authoring Custom Elements, focus on the consumer API instead of the internal implementation. As authors, we should strive to minimize breaking changes for consumers of our elements.
-- [**Web Components Best Practices**](https://www.webcomponents.org/community/articles/web-compo- nents-best-practices)
+- [**Web Components Best Practices**](https://www.webcomponents.org/community/articles/web-components-best-practices)
 - [**Custom Element Best Practices**](https://developers.google.com/web/fundamentals/web-components/best-practices)
 
 
