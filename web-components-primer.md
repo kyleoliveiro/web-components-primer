@@ -68,14 +68,6 @@ The term "Web Components" refers to a W3C browser specification. It's aim: enabl
 >
 > -- *https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template*
 
-**Example:**
-
-```
-<template>
-	
-</template>
-```
-
 **Further reading:** [**Introduction to the template elements**](https://www.webcomponents.org/community/articles/introduction-to-template-element)
 
 
@@ -342,7 +334,7 @@ Called when one of the element's `observedAttributes` changes.
 
 
 
-###Working with attributes/properties
+### Working with attributes/properties
 
 #### `static get observedAttributes()`
 
@@ -382,7 +374,7 @@ Slots have a `slotchange` event which fires when nodes in the slot change.
 
 
 
-###Creating and using a Custom Element
+### Creating and using a Custom Element
 
 Let's create a Custom Element called  `<popout-nav>` . We'll aim to be able to use it like this:
 
