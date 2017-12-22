@@ -1,0 +1,24 @@
+<!-- Set id on template for FF compatbility -->
+<template id="dropdown-menu">
+
+  <!-- Import the Custom Element stylesheet inside the template tag -->
+  <link rel="stylesheet" href="dropdown-menu/dropdown-menu.css">
+    
+<!--
+    We will rewrite the `<button>` `textContent`  
+    with the element's `button-text` attribute.
+-->
+    <button id="button" aria-pressed="false" aria-haspopup="true" aria-controls="menu"></button>
+    
+<!--
+    `<popup-nav>`s children will be rendered into `<slot>`. 
+    We give an id of "menu" so we can query the `<div>` with JS later.
+-->
+    <div id="menu" role="menu" hidden>
+      <slot></slot>
+    </div>
+    
+</template>
+
+<!-- Import Custom Element scripts outside of the template tag -->
+<script src="dropdown-menu.js"></script>

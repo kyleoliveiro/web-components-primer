@@ -1,0 +1,87 @@
+/* :host selector targets the root of the Custom Element */
+:host {
+  display: block; /* If not set, defaults to `inline` */
+}
+
+/* It is a good practice to apply the `display: none` style
+   to the :host element if it has the `hidden` attribute set. */
+:host([hidden]) {
+  display: none;
+}
+
+/* Google says it's a best practice to use simple selectors in Web Components.
+   These selectors are scoped to the Shadow DOM and will not leak out */
+#menu {
+  position: absolute;
+  top: 100%;
+  left: auto;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  transition: max-height 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  min-width: 100%;
+  max-height: 100vh;
+  opacity: 1;
+  border: 1px solid lightgrey;
+  box-shadow: var(--dropdown-menu-box-shadow, 0 3px 6px -1px rgba(0,0,0,0.2));
+  background: white;
+  z-index: 10000;
+}
+
+#menu[hidden],
+#menu:host-context([disabled]) {
+  visibility: hidden;
+  max-height: 0;
+}
+
+#menu[hidden] {
+  transition: none;
+  opacity: 0;
+}
+
+#button {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-appearance: var(--dropdown-menu-button-appearance, none);
+  appearance: var(--dropdown-menu-button-appearance, none);
+  padding: var(--dropdown-menu-button-padding, 0.5em 1em);;
+  border: var(--dropdown-menu-button-border, none);
+  background: var(--dropdown-menu-button-bg, black);
+  color: var(--dropdown-menu-button-text-color, white);
+  font-size: var(--dropdown-menu-button-size, inherit);
+  font-weight: var(--dropdown-menu-button-weight, normal);
+  border-radius: var(--dropdown-menu-button-radius, 4px);
+}
+
+#button[disabled] {
+  background: var(--dropdown-menu-button-bg, grey);
+  color: var(--dropdown-menu-button-text-color, lightgrey);
+  cursor: not-allowed;
+}
+
+/* ::slotted targets elements in a <slot> */
+::slotted(*) {
+  margin: 0;
+  padding: 0.5em 1.5em;
+  border-top:
+    var(--dropdown-menu-item-border-width, 1px)
+    var(--dropdown-menu-item-border-style, solid)
+    var(--dropdown-menu-item-border-color, #EEEEEE);
+}
+
+::slotted(*:first-child) {
+  border-top: none;
+}
+
+::slotted(a) {
+  display: block;
+  color: var(--dropdown-menu-link-text-color, #3A3A3A);
+  background: var(--dropdown-menu-link-bg, #FFFFFF);
+  text-decoration: var(--dropdown-menu-link-text-decoration, none);
+}
+
+::slotted(a:hover) {
+  color: var(--dropdown-menu-link-text-color-hover, #000000);
+  background: var(--dropdown-menu-link-bg-hover, #EEEEEE);
+  text-decoration: var(--dropdown-menu-link-text-decoration-hover, none);
+}
